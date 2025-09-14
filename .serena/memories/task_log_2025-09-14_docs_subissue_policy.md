@@ -1,0 +1,1 @@
+2025-09-14: AGENTS.md に sub issue 運用（Projects/Milestone不使用）を追記。親Issueタスクリストの並び＝開始順／各sub issue本文に「Blocked by #XYZ」を記載。status:blocked/ready のラベル運用を明文化。UI上のLinked issues（blocks）は任意・手動扱い。該当箇所: AGENTS.md:84 付近の新セクション。
