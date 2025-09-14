@@ -23,6 +23,24 @@
 - 思考チェック: `think_about_task_adherence`/`think_about_collected_information`/`think_about_whether_you_are_done`
   - 編集前後で自己点検し、脱線や取りこぼしを避ける。
 
+### PR運用（Serenaメモ先行記録）
+- 原則: PRを作成する前に、Serenaの `write_memory` で「PR意図」を必ず記録する。
+  - 目的: 未追跡メモの取りこぼし防止と履歴一貫性の確保。
+  - 推奨メモ名: `task_log_YYYY-MM-DD_pr_intent_<summary>`
+  - 記載項目: 目的/変更ファイル/ブランチ名/ラベル/マージ方針（ユーザーがマージ）
+- 手順:
+  1) `write_memory` でPR意図を記録（上記テンプレートに従う）
+  2) ブランチ作成 → 変更をコミット（必要なら未追跡メモも同PRに含める）
+  3) PR作成（アシスタントはマージしない。マージはユーザーが実施）
+- メモテンプレ（例）:
+  ```
+  2025-09-14: PR意図 — <要約>
+  変更: <ファイル一覧>
+  ブランチ: <branch-name>
+  ラベル: type:docs|feat|...（必要に応じて）
+  備考: マージはユーザーが実施
+  ```
+
 ### Serena 必須ルール（Codex 連携）
 - セッション開始時: このディレクトリを Serena プロジェクトとして必ず有効化する。
   - serena__activate_project を使い、プロジェクト名は プロジェクトフォルダ名（カレントディレクトリ）。
