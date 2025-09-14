@@ -49,15 +49,31 @@
 ## 実務ルール
 - Gitブランチ運用: 各タスクは専用ブランチを切って作業する（例: `feature/…`, `fix/…`, `docs/…`）。
 - コミット粒度: タスク内の区切りごとに小さくコミット（コンパイル可能/テスト通過を原則）。
-- コード編集は `apply_patch` で行い、差分を最小に保つ。
 - 影響範囲が広い変更は計画を分割し、段階的に適用。
 - CI/テストは必要時のみ実行し、ログは簡潔に共有。
 - セキュリティ: 秘密情報をコミットしない。大きなバイナリは Git LFS。
+
+### Git操作の実行方法（重要）
+- MCPサーバを用途で分離して利用する。
+  - ローカルGit操作: 「mcp-server-git」（`git__*` ツール）を使用（ステータス/差分/ステージ/コミット/ブランチ操作）。
+  - GitHub操作: 「github-mcp-server」（`github__*` ツール）を使用（PR/Issue/レビュー/ラベル/マージ/リリース等）。
+- `push` について:
+  - 原則はローカル`git`による `git push`（ネットワーク利用のため承認必須）。
+  - 代替として `github__push_files` は存在するが、ローカル履歴と乖離し得るため通常は非推奨。
+- 直接シェルの `git` コマンドは原則使用しない（障害時のみ、承認の上でフォールバック）。
+- コミットメッセージは下記「コミットメッセージ規約」に従う（type以外は日本語）。
+- ブランチ運用ルール（各タスク専用ブランチ）は維持する。
+
+【対比の目安】
+- `mcp-server-git`: `git__git_status`/`git__git_diff`/`git__git_add`/`git__git_commit`/`git__git_branch`/`git__git_checkout` 等。
+- `github-mcp-server`: `github__create_pull_request`/`github__update_pull_request`/`github__merge_pull_request`/`github__add_issue_comment` 等。
 
 ## Git運用とタスク管理
 - タスクリスト: Serena のメモに作成・維持する（メモ名: `task_list`）。
 - 名前規則: 「タスク名」と「ブランチ名」を一致させる。
 - 説明必須: 各タスクは何を達成するか一読で分かる要約を付ける。
+- Serenaメモ運用: `.serena/memories/*.md` は作業と同時にステージ＆コミットする（機密は記載しない、不要メモは除外）。
+- タスク完了後: PRを作成してレビュー/マージを依頼する。
 
 ### タスクエントリ（`task_list` メモの雛形）
 ```
