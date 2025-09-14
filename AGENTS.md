@@ -69,7 +69,7 @@
 - `github-mcp-server`: `github__create_pull_request`/`github__update_pull_request`/`github__merge_pull_request`/`github__add_issue_comment` 等。
 
 ## Git運用とタスク管理
-- タスク管理: GitHubのIssueで管理する（Serenaの `task_list.md` は廃止）。
+- タスク管理: GitHubのIssueで管理する（Serenaの `task_list` メモは参照/サマリ用途で維持）。
 - 階層化: 大きなタスクは適宜分割し、必要に応じて sub-issue で管理する。
 - 名前規則: 「タスク名」と「ブランチ名」を一致させる。
 - 説明必須: 各タスクは何を達成するか一読で分かる要約を付ける。
