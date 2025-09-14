@@ -1,0 +1,1 @@
+2025-09-14: リモートと同期完了。master を cdr_cs/master に fast-forward（最新: 00ad990, PR #36 マージ反映）。ローカル未追跡: serena_memory_policy_2025-09-14.md / task_log_2025-09-14_master_sync.md（必要に応じて後でPRに含める）。
