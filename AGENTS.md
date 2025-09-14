@@ -75,20 +75,21 @@
 - MCPサーバを用途で分離して利用する。
   - ローカルGit操作: 「mcp-server-git」（`git__*` ツール）を使用（ステータス/差分/ステージ/コミット/ブランチ操作）。
   - GitHub操作: 「github-mcp-server」（`github__*` ツール）を使用（PR/Issue/レビュー/ラベル/マージ/リリース等）。
-+- ブランチ作成ポリシー（remote-first, github-mcp 統一）:
-+  - 1) `github__create_branch` で GitHub 上にブランチを作成
-+  - 2) ローカル同期: `git fetch cdr_cs` → `git checkout -t cdr_cs/<branch>`
-+  - 3) 以後の変更を当該ブランチで実施し、必要に応じて `github__push_files`（docs/メモ限定）またはローカル `git push` を使用
-+  - 4) PR作成（マージはユーザー）。マージ後は自動削除設定（Automatically delete head branches）を推奨
+  - ブランチ作成ポリシー（remote-first, github-mcp 統一）:
+    - 1) `github__create_branch` で GitHub 上にブランチを作成
+    - 2) ローカル同期: `git fetch cdr_cs` → `git checkout -t cdr_cs/<branch>`（以後、このブランチで作業開始）
+    - 3) 以後の変更はローカルでコミットし、`git push` で同期（ドキュメントでも `github__push_files` は使用しない）
+    - 4) PR作成（マージはユーザー）。マージ後は自動削除設定（Automatically delete head branches）を推奨。
 - `push` について:
   - 原則はローカル`git`による `git push`（ネットワーク利用のため承認必須）。
-  - 代替として `github__push_files` は存在するが、ローカル履歴と乖離し得るため通常は非推奨。
+  - `github__push_files` はドキュメントを含め全面禁止。
+    - 理由: いずれもPRを経由するため、ローカル履歴と乖離する運用を採るメリットがない。
 - 直接シェルの `git` コマンドは原則使用しない（障害時のみ、承認の上でフォールバック）。
 - コミットメッセージは下記
 [... omitted 0 of 182 lines ...]
 
   - `git fetch cdr_cs` → `git checkout <branch>` → `git reset --hard cdr_cs/<branch>`。
-- 混在注意: 同一ブランチでローカルコミットと `github__push_files` を混在させない。混在した場合は即同期して乖離を解消。
+- 混在注意: `github__push_files` は使用しないため混在は発生しない。過去の履歴で混在がある場合は `git fetch` / `git reset --hard` で整合を取る。
 - 乖離チェック: 次の作業前に `git status -sb` で upstream 乖離がないことを確認。
 
 ### コミットメッセージ規約（Conventional Commits 準拠）
@@ -141,3 +142,4 @@
 5. Python 公式実装で相互検証（必要に応じて `mcap info`/読取スクリプト）
 6. `write_memory` にタスク要約＋検証ログを記録
 7. `think_about_whether_you_are_done` で完了確認
+
