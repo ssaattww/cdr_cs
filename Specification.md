@@ -127,6 +127,26 @@
 
 ---
 
+#### 参考と出典（短い原文引用）
+- CDR（CORBA）文字列の長さとNUL含有  
+  引用: "Strings are encoded as an unsigned long that indicates the length, including its terminating NUL byte."  
+  出典: Advanced CORBA Programming with C++（CDR の定義解説）  
+  参照: https://ebin.pub/advanced-corba-programming-with-c-0201379279-9780201379273.html
+
+- DDS-XTypes（NUL含有の明示）  
+  引用: "including the terminating NUL character."（コミュニティでの仕様引用）  
+  参照: https://github.com/ros2/rmw_cyclonedds/issues/43  
+  原典: https://www.omg.org/spec/DDS-XTypes/
+
+- Fast-CDR の直列化（NUL終端文字列）  
+  引用: "serializes a null-terminated string."（`Cdr::operator<<(const char*)` 説明）  
+  参照: https://fast-dds.docs.eprosima.com/en/latest/fastcdr/fastcdr.html
+
+- ROS 2 Fast RTPS TypeSupport 実装例（4B整列と +1[NUL]）  
+  例: `current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);`  
+  例: 上限チェックで `string_upper_bound_ + 1`（NULを含める）  
+  参照: https://docs.ros.org/en/ros2_packages/humble/api/rmw_fastrtps_dynamic_cpp/generated/program_listing_file_include_rmw_fastrtps_dynamic_cpp_TypeSupport_impl.hpp.html
+
 ## 5. アプローチ B の仕様（Connext 上で C# クライアント語彙を再現）
 
 ### 5.1 目的
