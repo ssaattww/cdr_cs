@@ -70,6 +70,11 @@
 
 ## Git運用とタスク管理
 - タスク管理: GitHubのIssueで管理する（Serenaの `task_list` メモは参照/サマリ用途で維持）。
+- タイトル: `[type] scope: 要約`（例: `[feat] writer: Zstdのしきい値導入`）。
+- ブランチ: `<type>/<scope-kebab>-<yyyymmdd>`（例: `feat/writer-zstd-threshold-20250914`）。
+- ラベル: `type:*`, `area:*`, `priority:P0|P1|P2`, `status:ready|in-progress|blocked|needs-review` を付与。
+- DoD: 受入基準をチェックリスト化し、PRで満たすこと。
+- サブIssue: 大きなタスクは sub-issue（`- [ ] #123`）で分割管理。
 - 階層化: 大きなタスクは適宜分割し、必要に応じて sub-issue で管理する。
 - 名前規則: 「タスク名」と「ブランチ名」を一致させる。
 - 説明必須: 各タスクは何を達成するか一読で分かる要約を付ける。
