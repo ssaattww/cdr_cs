@@ -1,0 +1,1 @@
+2025-09-14: PR意図 — AGENTS.mdに「メモ生成時は write_memory → git add → git commit（Memory-first）」の順序を明記し、未追跡ファイルの常駐を防止する方針を追記。対象PR: #41（docs/forbid-push-files-20250914）に追記コミットとして含める。ラベル: type:docs。マージはユーザーが実施。

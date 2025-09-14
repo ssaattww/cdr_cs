@@ -1,0 +1,1 @@
+2025-09-14: PR意図 — AGENTS.md の Memory-first 手順に「一括ステージ（git add -A .serena/memories）」の具体コマンド例を追記。対象PR: #41（docs/forbid-push-files-20250914）へ追記コミットとして含める。ラベル: type:docs。マージはユーザーが実施。
