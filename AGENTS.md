@@ -61,31 +61,9 @@
   - 原則はローカル`git`による `git push`（ネットワーク利用のため承認必須）。
   - 代替として `github__push_files` は存在するが、ローカル履歴と乖離し得るため通常は非推奨。
 - 直接シェルの `git` コマンドは原則使用しない（障害時のみ、承認の上でフォールバック）。
-- コミットメッセージは下記「コミットメッセージ規約」に従う（type以外は日本語）。
-- ブランチ運用ルール（各タスク専用ブランチ）は維持する。
+- コミットメッセージは下記
+[... omitted 0 of 182 lines ...]
 
-【対比の目安】
-- `mcp-server-git`: `git__git_status`/`git__git_diff`/`git__git_add`/`git__git_commit`/`git__git_branch`/`git__git_checkout` 等。
-- `github-mcp-server`: `github__create_pull_request`/`github__update_pull_request`/`github__merge_pull_request`/`github__add_issue_comment` 等。
-
-## Git運用とタスク管理
-- タスク管理: GitHubのIssueで管理する（Serenaの `task_list` メモは参照/サマリ用途で維持）。
-- タイトル: `[type] scope: 要約`（例: `[feat] writer: Zstdのしきい値導入`）。
-- ブランチ: `<type>/<scope-kebab>-<yyyymmdd>`（例: `feat/writer-zstd-threshold-20250914`）。
-- ラベル: `type:*`, `area:*`, `priority:P0|P1|P2`, `status:ready|in-progress|blocked|needs-review` を付与。
-- DoD: 受入基準をチェックリスト化し、PRで満たすこと。
-- サブIssue: 大きなタスクは sub-issue（`- [ ] #123`）で分割管理。
-- 階層化: 大きなタスクは適宜分割し、必要に応じて sub-issue で管理する。
-- 名前規則: 「タスク名」と「ブランチ名」を一致させる。
-- 説明必須: 各タスクは何を達成するか一読で分かる要約を付ける。
-- Serenaメモ運用: `.serena/memories/*.md` は作業と同時にステージ＆コミットする（機密は記載しない、不要メモは除外）。
-- タスク完了後: PRを作成してレビュー/マージを依頼する。
-
-【github__push_files の利用制限と同期手順】
-- デフォルト方針: ローカル先行（`git__git_add`→`git__git_commit`→承認付き `git push`）。PR/Issue操作は `github-mcp-server`。
-- 限定利用: `github__push_files` は Docs/メモ等の軽微変更に限定し、コード変更では使用しない。masterへ直接コミットは不可（必ずブランチ→PR）。
-- 直後同期（必須）: 使用直後にローカルを同期する。
-  - 作業ツリーがクリーンであることを確認（未コミットは commit/stash）。
   - `git fetch cdr_cs` → `git checkout <branch>` → `git reset --hard cdr_cs/<branch>`。
 - 混在注意: 同一ブランチでローカルコミットと `github__push_files` を混在させない。混在した場合は即同期して乖離を解消。
 - 乖離チェック: 次の作業前に `git status -sb` で upstream 乖離がないことを確認。
