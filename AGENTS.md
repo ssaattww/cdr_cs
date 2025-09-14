@@ -25,7 +25,7 @@
 
 ### Serena 必須ルール（Codex 連携）
 - セッション開始時: このディレクトリを Serena プロジェクトとして必ず有効化する。
-  - serena__activate_project を使い、プロジェクト名は mcap_cs（または絶対パス）。
+  - serena__activate_project を使い、プロジェクト名は プロジェクトフォルダ名（カレントディレクトリ）。
   - .serena/project.yml の language: csharp を確認。異なる場合は再アクティベート。
 - 解析/探索は Serena ツールを優先: get_symbols_overview / find_symbol / find_referencing_symbols / search_for_pattern。
   - 結果が大きい場合は relative_path（例: csharp/…）や max_answer_chars を調整。
@@ -33,7 +33,7 @@
 - OmniSharp（C# LSP）:
   - PATH に omnisharp を用意。優先度は「ネイティブ OmniSharp → OmniSharp.dll を dotnet + DOTNET_ROLL_FORWARD=Major → run/mono（最終手段）」。
   - 簡易検証は omnisharp --help / --version を 3–5 秒のタイムアウト付きで実行。
-  - 連携確認の基準: McapCs/Writer/McapWriter.cs の McapWriter クラスおよび WriteChunk メソッドが find_symbol で解決できること。
+  - 連携確認の基準:クラスおよびメソッドが find_symbol で解決できること。
 - プレアンブル: 複数の関連ツール呼び出し前に、意図と次ステップを 1–2 文で共有する。
 - 承認: ネットワークアクセスや破壊的操作はユーザーの承認（既定: on-request）を得る。
 
@@ -54,7 +54,7 @@
 
 ## テスト/検証方
 - 基本: TDD を徹底（ユニット→結合→スモーク）。
-- 相互検証: 公式実装（`mcap`）で読み出し/書き出し検証を行う。
+- 相互検証: 公式実装で読み出し/書き出し検証を行う。
   - 目的: 相互運用性とレコード整合性の確認。
   - 手順例:
     - C#: `dotnet test McapCs.sln -c Release`
