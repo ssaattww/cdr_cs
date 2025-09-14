@@ -1,0 +1,1 @@
+2025-09-14: PR意図 — AGENTS.mdへ「PR出す前にSerena write_memoryでPR意図を記録」ルールを追記し、未追跡メモ2件（task_log_2025-09-14_pr37_and_sync.md / task_log_2025-09-14_local_cleanup_and_sync_attempt.md）を同PRに含める。ブランチ: docs/serena-pr-intent-policy-20250914。ラベル: type:docs。アシスタントはマージしない（ユーザが実施）。

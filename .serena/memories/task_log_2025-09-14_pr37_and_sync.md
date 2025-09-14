@@ -1,0 +1,1 @@
+2025-09-14: PR #37（docs: Serenaメモのポリシーと同期ログを追加）を作成・squash merge。マージ後、ローカル master を cdr_cs/master（484c007）に同期。未追跡: task_log_2025-09-14_remote_sync.md（必要時に次回PRへ含める）。
