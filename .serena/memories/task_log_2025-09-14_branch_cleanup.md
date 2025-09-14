@@ -1,0 +1,1 @@
+2025-09-14: ローカルブランチを整理。削除: docs/serena-sync-20250914（PR #34 マージ後）, docs/subissue-policy-20250914（PR #11 マージ後）。保持: docs/approach-a-tasks-20250914（ApproachAタスクの退避用）。リモートブランチ削除はUIの「Delete branch」または git push --delete で実施可。

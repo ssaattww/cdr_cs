@@ -1,0 +1,1 @@
+2025-09-14: docs/approach-a-tasks-20250914 を master へ取り込み後、ローカルブランチを削除。PR #35 はマージ済み。リモートブランチ削除はUIの「Delete branch」推奨（APIツール未対応）。
