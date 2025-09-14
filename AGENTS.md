@@ -47,10 +47,43 @@
   - 詳細トレース（入出力・境界条件・疑似コード/図）
 
 ## 実務ルール
+- Gitブランチ運用: 各タスクは専用ブランチを切って作業する（例: `feature/…`, `fix/…`, `docs/…`）。
+- コミット粒度: タスク内の区切りごとに小さくコミット（コンパイル可能/テスト通過を原則）。
 - コード編集は `apply_patch` で行い、差分を最小に保つ。
 - 影響範囲が広い変更は計画を分割し、段階的に適用。
 - CI/テストは必要時のみ実行し、ログは簡潔に共有。
 - セキュリティ: 秘密情報をコミットしない。大きなバイナリは Git LFS。
+
+## Git運用とタスク管理
+- タスクリスト: Serena のメモに作成・維持する（メモ名: `task_list`）。
+- 名前規則: 「タスク名」と「ブランチ名」を一致させる。
+- 説明必須: 各タスクは何を達成するか一読で分かる要約を付ける。
+
+### タスクエントリ（`task_list` メモの雛形）
+```
+- name: <task_name>   # ブランチ名と同一
+  branch: <task_name>
+  goal: <タスクの目的・達成条件（1–2文）>
+  status: pending | in_progress | completed
+  notes: <補足（任意）>
+```
+
+### コミットメッセージ規約（Conventional Commits 準拠）
+- 重要: type 以外は日本語にすること。
+```
+<type>: <subject>
+
+<body>
+```
+- type 一覧:
+  - feat: A new feature
+  - fix: A bug fix
+  - docs: Documentation only changes
+  - style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+  - refactor: A code change that neither fixes a bug nor adds a feature
+  - perf: A code change that improves performance
+  - test: Adding missing or correcting existing tests
+  - chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
 
 ## テスト/検証方
 - 基本: TDD を徹底（ユニット→結合→スモーク）。
