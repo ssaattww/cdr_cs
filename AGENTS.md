@@ -81,6 +81,15 @@
 - Serenaメモ運用: `.serena/memories/*.md` は作業と同時にステージ＆コミットする（機密は記載しない、不要メモは除外）。
 - タスク完了後: PRを作成してレビュー/マージを依頼する。
 
+【github__push_files の利用制限と同期手順】
+- デフォルト方針: ローカル先行（`git__git_add`→`git__git_commit`→承認付き `git push`）。PR/Issue操作は `github-mcp-server`。
+- 限定利用: `github__push_files` は Docs/メモ等の軽微変更に限定し、コード変更では使用しない。masterへ直接コミットは不可（必ずブランチ→PR）。
+- 直後同期（必須）: 使用直後にローカルを同期する。
+  - 作業ツリーがクリーンであることを確認（未コミットは commit/stash）。
+  - `git fetch cdr_cs` → `git checkout <branch>` → `git reset --hard cdr_cs/<branch>`。
+- 混在注意: 同一ブランチでローカルコミットと `github__push_files` を混在させない。混在した場合は即同期して乖離を解消。
+- 乖離チェック: 次の作業前に `git status -sb` で upstream 乖離がないことを確認。
+
 ### コミットメッセージ規約（Conventional Commits 準拠）
 - 重要: type 以外は日本語にすること。
 ```
