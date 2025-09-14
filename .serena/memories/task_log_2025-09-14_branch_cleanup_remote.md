@@ -1,0 +1,1 @@
+2025-09-14: リモートブランチはユーザー側で削除完了との報告。対象: docs/serena-sync-20250914（PR #34 後）, docs/subissue-policy-20250914（PR #11 後）。ローカル側は既に削除済み。必要なら `git fetch --prune cdr_cs` で追跡ブランチを整理可能。
