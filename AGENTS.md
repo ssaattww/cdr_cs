@@ -150,7 +150,10 @@
 5. Python 公式実装で相互検証（必要に応じて `mcap info`/読取スクリプト）
 6. `write_memory` にタスク要約＋検証ログを記録
 7. `think_about_whether_you_are_done` で完了確認
-<<<<<<< HEAD
 
-=======
->>>>>>> a3a4b86 (docs: github__push_files を全面禁止し、remote-firstブランチ作成運用を明記)
+## テストフレームワーク（xUnit）
+- 既定: xUnit.net を使用する。コンソールRunnerは使用しない。
+- 配置: `tests/<Name>.Tests` ディレクトリ（例: `tests/Interop.Tests`）。
+- 依存: `Microsoft.NET.Test.Sdk`, `xunit`, `xunit.runner.visualstudio`（必要に応じ `coverlet.collector`）。
+- 実行: `dotnet test cdr_cs.sln`（ネットワーク制限下では実行を保留し、CI/ローカルで復元・実行）。
+- 設計: Fact/Theory を用いたTDD、外部依存の最小化、テスト名は日本語可（意図を明確に）。
