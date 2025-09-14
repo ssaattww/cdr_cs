@@ -1,0 +1,1 @@
+2025-09-14: PR意図 — ブランチ作成は github-mcp（github__create_branch）に統一し、作成後にローカルで checkout する運用を AGENTS.md に追記。目的は同期の二度手間削減。ブランチ: docs/branch-policy-remote-first-20250914-2。ラベル: type:docs。マージはユーザーが実施。

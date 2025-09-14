@@ -1,0 +1,1 @@
+2025-09-14: PR意図 — AGENTS.mdに「ドキュメントでも github__push_files を禁止」および「ブランチ作成は github-mcp でremote-first→ローカルcheckout」へ統一する方針を追記。ブランチ: docs/forbid-push-files-20250914。ラベル: type:docs。マージはユーザーが実施。
