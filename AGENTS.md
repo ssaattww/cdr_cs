@@ -69,9 +69,12 @@
 - `github-mcp-server`: `github__create_pull_request`/`github__update_pull_request`/`github__merge_pull_request`/`github__add_issue_comment` 等。
 
 ## Git運用とタスク管理
-- タスクリスト: Serena のメモに作成・維持する（メモ名: `task_list`）。
-- 名前規則: 「タスク名」と「ブランチ名」を一致させる。
-- 説明必須: 各タスクは何を達成するか一読で分かる要約を付ける。
+- タスク管理: GitHubのIssueで管理する（Serenaの `task_list` メモは参照/サマリ用途で維持）。
+- タイトル: `[type] scope: 要約`（例: `[feat] writer: Zstdのしきい値導入`）。
+- ブランチ: `<type>/<scope-kebab>-<yyyymmdd>`（例: `feat/writer-zstd-threshold-20250914`）。
+- ラベル: `type:*`, `area:*`, `priority:P0|P1|P2`, `status:ready|in-progress|blocked|needs-review` を付与。
+- DoD: 受入基準をチェックリスト化し、PRで満たすこと。
+- サブIssue: 大きなタスクは sub-issue（`- [ ] #123`）で分割管理。
 - Serenaメモ運用: `.serena/memories/*.md` は作業と同時にステージ＆コミットする（機密は記載しない、不要メモは除外）。
 - タスク完了後: PRを作成してレビュー/マージを依頼する。
 
