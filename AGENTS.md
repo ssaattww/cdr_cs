@@ -69,20 +69,12 @@
 - `github-mcp-server`: `github__create_pull_request`/`github__update_pull_request`/`github__merge_pull_request`/`github__add_issue_comment` 等。
 
 ## Git運用とタスク管理
-- タスクリスト: Serena のメモに作成・維持する（メモ名: `task_list`）。
+- タスク管理: GitHubのIssueで管理する（Serenaの `task_list` メモは参照/サマリ用途で維持）。
+- 階層化: 大きなタスクは適宜分割し、必要に応じて sub-issue で管理する。
 - 名前規則: 「タスク名」と「ブランチ名」を一致させる。
 - 説明必須: 各タスクは何を達成するか一読で分かる要約を付ける。
 - Serenaメモ運用: `.serena/memories/*.md` は作業と同時にステージ＆コミットする（機密は記載しない、不要メモは除外）。
 - タスク完了後: PRを作成してレビュー/マージを依頼する。
-
-### タスクエントリ（`task_list` メモの雛形）
-```
-- name: <task_name>   # ブランチ名と同一
-  branch: <task_name>
-  goal: <タスクの目的・達成条件（1–2文）>
-  status: pending | in_progress | completed
-  notes: <補足（任意）>
-```
 
 ### コミットメッセージ規約（Conventional Commits 準拠）
 - 重要: type 以外は日本語にすること。
