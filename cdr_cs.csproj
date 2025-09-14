@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- tests 以下の *.cs（およびその obj/bin 内生成物）をライブラリのビルド対象から除外する -->
+  <ItemGroup>
+    <Compile Remove="tests/**/*.cs" />
+    <Compile Remove="tests/**/obj/**/*.cs" />
+    <Compile Remove="tests/**/bin/**/*.cs" />
+  </ItemGroup>
+
 </Project>
