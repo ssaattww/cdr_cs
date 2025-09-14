@@ -136,16 +136,15 @@
 - DDS-XTypes（NUL含有の明示）  
   引用: "including the terminating NUL character."（コミュニティでの仕様引用）  
   参照: https://github.com/ros2/rmw_cyclonedds/issues/43  
-  原典: https://www.omg.org/spec/DDS-XTypes/
+  原典PDF: https://www.omg.org/spec/DDS-XTypes/1.3/PDF#page=28 （7.2.2.1.2.4 String<Char8> type）
 
 - Fast-CDR の直列化（NUL終端文字列）  
   引用: "serializes a null-terminated string."（`Cdr::operator<<(const char*)` 説明）  
-  参照: https://fast-dds.docs.eprosima.com/en/latest/fastcdr/fastcdr.html
+  参照: https://docs.ros.org/en/melodic/api/fastcdr/html/classeprosima_1_1fastcdr_1_1Cdr.html （ページ内の “operator<< (const char* string_t)” を参照）
 
 - ROS 2 Fast RTPS TypeSupport 実装例（4B整列と +1[NUL]）  
-  例: `current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);`  
-  例: 上限チェックで `string_upper_bound_ + 1`（NULを含める）  
-  参照: https://docs.ros.org/en/ros2_packages/humble/api/rmw_fastrtps_dynamic_cpp/generated/program_listing_file_include_rmw_fastrtps_dynamic_cpp_TypeSupport_impl.hpp.html
+  例: `current_alignment += 4 + eprosima::fastcdr::Cdr::alignment(current_alignment, 4);` → https://docs.ros.org/en/ros2_packages/humble/api/rmw_fastrtps_dynamic_cpp/generated/TypeSupport__impl_8hpp_source.html#l308  
+  例: 上限チェックで `string_upper_bound_ + 1`（NULを含める） → https://docs.ros.org/en/ros2_packages/humble/api/rmw_fastrtps_dynamic_cpp/generated/TypeSupport__impl_8hpp_source.html#l136
 
 ## 5. アプローチ B の仕様（Connext 上で C# クライアント語彙を再現）
 
