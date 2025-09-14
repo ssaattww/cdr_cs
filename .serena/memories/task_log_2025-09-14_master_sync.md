@@ -1,0 +1,1 @@
+2025-09-14: masterをリモート(cdr_cs/master)にfast-forward同期。HEAD eb6364b（PR #35 のマージコミット）。ローカル未追跡: Serenaログ（branch_cleanup*, merge_approachA_tasks*）。必要なら別PRで取り込み予定。
