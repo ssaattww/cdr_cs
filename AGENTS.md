@@ -23,6 +23,13 @@
 - 思考チェック: `think_about_task_adherence`/`think_about_collected_information`/`think_about_whether_you_are_done`
   - 編集前後で自己点検し、脱線や取りこぼしを避ける。
 
+### メモ作成時のコミット順序（Memory-first）
+- 目的: 未追跡メモが作業ツリーに残り続けることを防ぐ。
+- 順序: `write_memory` → `git add` → `git commit`（直後にコミット）。
+- 補足:
+  - 複数メモをまとめて作成した場合も、同一トピックであれば1コミットにまとめて良い。
+  - 以後のコード変更は通常のローカルコミット→push→PRフローに従う。
+
 ### PR運用（Serenaメモ先行記録）
 - 原則: PRを作成する前に、Serenaの `write_memory` で「PR意図」を必ず記録する。
   - 目的: 未追跡メモの取りこぼし防止と履歴一貫性の確保。
