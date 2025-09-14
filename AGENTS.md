@@ -142,4 +142,7 @@
 5. Python 公式実装で相互検証（必要に応じて `mcap info`/読取スクリプト）
 6. `write_memory` にタスク要約＋検証ログを記録
 7. `think_about_whether_you_are_done` で完了確認
+<<<<<<< HEAD
 
+=======
+>>>>>>> a3a4b86 (docs: github__push_files を全面禁止し、remote-firstブランチ作成運用を明記)
