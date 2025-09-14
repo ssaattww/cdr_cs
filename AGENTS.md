@@ -75,6 +75,11 @@
 - MCPサーバを用途で分離して利用する。
   - ローカルGit操作: 「mcp-server-git」（`git__*` ツール）を使用（ステータス/差分/ステージ/コミット/ブランチ操作）。
   - GitHub操作: 「github-mcp-server」（`github__*` ツール）を使用（PR/Issue/レビュー/ラベル/マージ/リリース等）。
++- ブランチ作成ポリシー（remote-first, github-mcp 統一）:
++  - 1) `github__create_branch` で GitHub 上にブランチを作成
++  - 2) ローカル同期: `git fetch cdr_cs` → `git checkout -t cdr_cs/<branch>`
++  - 3) 以後の変更を当該ブランチで実施し、必要に応じて `github__push_files`（docs/メモ限定）またはローカル `git push` を使用
++  - 4) PR作成（マージはユーザー）。マージ後は自動削除設定（Automatically delete head branches）を推奨
 - `push` について:
   - 原則はローカル`git`による `git push`（ネットワーク利用のため承認必須）。
   - 代替として `github__push_files` は存在するが、ローカル履歴と乖離し得るため通常は非推奨。
