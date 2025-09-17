@@ -29,6 +29,20 @@
 
 ---
 
+### C. レイヤー構造（OSS DDS 前提）
+
+以下は最上段をアプリケーション、最下段を OS とした階層構造。ROS 2 クライアント層では、上段に各言語のクライアントライブラリ、下段に C 言語の `rcl` が位置する。参考: <https://docs.ros.org/en/rolling/Concepts/Basic/About-Client-Libraries.html> / <https://docs.ros.org/en/rolling/Concepts/Advanced/About-Middleware-Implementations.html>
+
+| 層（上→下） | 役割 | 代表的コンポーネント | 今回の位置づけ |
+| --- | --- | --- | --- |
+| アプリケーションレイヤ | 利用者が実装する ROS 2/C# アプリケーション | C# アプリケーション、ROS 2 ノード | 利用者アプリ |
+| ROS 2 クライアントレイヤ | 上段: `rclcpp`/`rclpy` 等の言語別クライアント API。下段: `rcl` が共通のクライアントサポートを提供。 | `rclcpp`, `rclpy`, `rclc`, `rcl` | 将来的に `cdr_cs` が `rcl` 相当の C# 抽象を提供 |
+| DDS 抽象レイヤ | RMW インターフェースで DDS 実装差異を吸収し、CDR シリアライゼーション/タイプサポートを提供 | `rmw_*` パッケージ、OpenDDSharp、`cdr_cs` | 現タスク: OpenDDSharp + `cdr_cs` で抽象層を構築 |
+| DDS 実装レイヤ | DDS プロトコルの実装本体 | OpenDDS、Cyclone DDS、Fast DDS など | 本計画では OpenDDS を採用 |
+| OS レイヤ | ネットワーク・プロセス基盤 | Linux、Windows など | 実行環境 |
+
+- OpenDDSharp は LGPL-3.0 ライセンス: <https://libraries.io/nuget/OpenDDSharp>
+
 ## 2. 参照標準と設計ドキュメント
 
 - Connext .NET API: <https://community.rti.com/static/documentation/connext-dds/current/doc/api/connext_dds/api_csharp/index.html>  
